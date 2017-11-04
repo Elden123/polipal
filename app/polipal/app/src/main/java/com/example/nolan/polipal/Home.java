@@ -20,11 +20,14 @@ public class Home extends AppCompatActivity {
         RelativeLayout r = (RelativeLayout) findViewById(R.id.activity_home);
         r.setBackgroundColor(Color.parseColor("#303030"));
 
-
+        /**
+         * TODO: Change "Decide.class" to "Login.class"
+         * "Decide.class" is just for testing
+         */
         signInB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent toSignIn = new Intent(Home.this, Login.class);
+                Intent toSignIn = new Intent(Home.this, Decide.class);
                 Home.this.startActivity(toSignIn);
             }
         });

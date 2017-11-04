@@ -10,4 +10,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.nolan.polipal.Decide">
 
+    <Button
+        android:text="Start Conversation"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="88dp"
+        android:id="@+id/startConversationB"
+        android:layout_width="250dp"
+        android:background="#92CBC5" />
 </RelativeLayout>

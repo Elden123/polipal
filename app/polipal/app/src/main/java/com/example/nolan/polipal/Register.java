@@ -33,7 +33,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.github.beijingstrongbow.Communication.FirebaseHandler;
+import com.github.beijingstrongbow.Communication.UserHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +69,7 @@ public class Register extends AppCompatActivity implements LoaderCallbacks<Curso
     private View mLoginFormView;
 
     UserData userData;
-    FirebaseHandler firebaseHandler = new FirebaseHandler();
+    UserHandler firebaseHandler = new UserHandler();
 
     EditText firstName;
     RadioGroup politicalAffiliation;
@@ -212,6 +212,14 @@ public class Register extends AppCompatActivity implements LoaderCallbacks<Curso
             mPasswordView.setError(getString(R.string.error_invalid_password));
             focusView = mPasswordView;
             cancel = true;
+        } else if(password == "null") {
+            mPasswordView.setError("Password cannot be 'null'");
+            focusView = mPasswordView;
+            cancel = true;
+        } else if(password.substring(0,1) == "-") {
+            mPasswordView.setError("Password cannot begin with '-'");
+            focusView = mPasswordView;
+            cancel = true;
         }
 
         // Check for a valid email address.
@@ -222,6 +230,22 @@ public class Register extends AppCompatActivity implements LoaderCallbacks<Curso
         } else if (!isEmailValid(email)) {
             mEmailView.setError(getString(R.string.error_invalid_email));
             focusView = mEmailView;
+            cancel = true;
+        } else if (email == "null") {
+            mEmailView.setError("Email cannot be 'null'");
+            focusView = mEmailView;
+            cancel = true;
+        } else if(email.substring(0,1) == "-") {
+            mPasswordView.setError("email cannot begin with '-'");
+            focusView = mPasswordView;
+            cancel = true;
+        }
+
+        if(firstName.getText().toString() == "null") {
+            cancel = true;
+        } else if(firstName.getText().toString().substring(0,1) == "-") {
+            mPasswordView.setError("First Name cannot begin with '-'");
+            focusView = mPasswordView;
             cancel = true;
         }
 

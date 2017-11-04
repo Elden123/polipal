@@ -37,17 +37,9 @@
                 android:value="com.example.nolan.polipal.Home" />
         </activity>
         <activity android:name=".Decide" />
-        <activity
-            android:name=".Conversation"
-            android:label="@string/title_activity_conversation"
-            android:parentActivityName=".Decide"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.nolan.polipal.Decide" />
-        </activity>
         <activity android:name=".Quiz" />
-        <activity android:name=".Exit"></activity>
+        <activity android:name=".Exit" />
+        <activity android:name=".Conversation"/>
     </application>
 
 </manifest>

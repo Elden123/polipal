@@ -10,4 +10,77 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.nolan.polipal.Quiz">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/whatText"
+        android:text="What do you want to talk about?"
+        android:textSize="22dp"
+        android:textColor="#7E7E7E"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/topicLayout"
+        android:orientation="vertical"
+        android:layout_below="@+id/whatText">
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topicLayout"
+        android:id="@+id/howLongLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How long do you want to talk for?"
+            android:id="@+id/howLongText"
+            android:textColor="#7E7E7E"/>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/howLongRadioGroup"
+            android:layout_below="@+id/howLongText"
+            android:layout_gravity="left">
+
+            <RadioButton
+                android:text="5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/five"
+                android:textColor="#7E7E7E" />
+
+            <RadioButton
+                android:text="15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/fifteen"
+                android:textColor="#7E7E7E" />
+
+            <RadioButton
+                android:text="30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/thirty"
+                android:textColor="#7E7E7E" />
+
+        </RadioGroup>
+
+        <Button
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/joinB"
+            android:text="Join"
+            android:background="#92CBC5"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/howLongRadioGroup" />
+
+    </LinearLayout>
+
+
+
 </RelativeLayout>

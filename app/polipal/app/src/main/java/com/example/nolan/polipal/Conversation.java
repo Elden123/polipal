@@ -1,11 +1,14 @@
 package com.example.nolan.polipal;
 
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.graphics.Color;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.os.Bundle;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class Conversation extends AppCompatActivity {
 
@@ -13,17 +16,28 @@ public class Conversation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conversation);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ArrayList<String> matchedOn = getMatchedOn();
+        String buffer = "";
+
+        TextView matchedText = (TextView) findViewById(R.id.matchedText);
+
+        for(int i = 0; i < matchedOn.size(); i++) {
+            buffer = matchedText.getText().toString();
+            matchedText.setText(buffer + ", " + matchedOn.get(i));
+        }
+
+    }
+
+    public ArrayList<String> getMatchedOn() {
+        ArrayList<String> matchedOn = new ArrayList<String>();
+        matchedOn.add("Gun Control");
+        matchedOn.add("Abortion");
+        matchedOn.add("Immigration");
+        matchedOn.add("Shopping");
+        matchedOn.add("Cooking");
+        matchedOn.add("Playing Sports");
+
+        return(matchedOn);
     }
 }
