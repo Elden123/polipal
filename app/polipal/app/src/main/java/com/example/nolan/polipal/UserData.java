@@ -20,6 +20,8 @@ public class UserData {
 
     private ArrayList<String> policyInterests;
 
+    private String UID;
+
     public UserData(){}
 
     public UserData(String name){
@@ -67,4 +69,8 @@ public class UserData {
     }
 
     public void setPolicyInterests(ArrayList<String> policyInterests){ this.policyInterests = policyInterests; }
+
+    public String getUID() { return UID; }
+
+    public void setUID(String UID) { this.UID = UID; }
 }
