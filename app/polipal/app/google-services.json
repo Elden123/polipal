@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "898652698034",
+    "firebase_url": "https://polipal-d2e24.firebaseio.com",
+    "project_id": "polipal-d2e24",
+    "storage_bucket": "polipal-d2e24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:898652698034:android:731006436c4ba646",
+        "android_client_info": {
+          "package_name": "com.example.nolan.polipal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "898652698034-iksja8vlglaciiapju01ntntheant2gd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nolan.polipal",
+            "certificate_hash": "5ac14b16b8954bd3fcd6bf6f7f2d4099f1840f39"
+          }
+        },
+        {
+          "client_id": "898652698034-nn74rep96res4sn01ojf5fu23ddlfff0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2zRRElyhd1k8oBbJn42C8uM-5s7KVKPQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "898652698034-nn74rep96res4sn01ojf5fu23ddlfff0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
