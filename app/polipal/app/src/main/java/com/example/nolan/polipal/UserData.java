@@ -1,5 +1,7 @@
 package com.example.nolan.polipal;
 
+import java.util.ArrayList;
+
 /**
  * Created by ericd on 11/4/2017.
  */
@@ -12,11 +14,11 @@ public class UserData {
 
     private String email;
 
-    private String[] hobbies;
+    private ArrayList<String> hobbies;
 
     private String politicalParty;
 
-    private String[] policyInterests;
+    private ArrayList<String> policyInterests;
 
     public UserData(){}
 
@@ -40,11 +42,11 @@ public class UserData {
         this.password = password;
     }
 
-    public String[] getHobbies(){
+    public ArrayList<String> getHobbies(){
         return hobbies;
     }
 
-    public void setHobbies(String[] hobbies){
+    public void setHobbies(ArrayList<String> hobbies){
         this.hobbies = hobbies;
     }
 
@@ -60,11 +62,9 @@ public class UserData {
         this.politicalParty = politicalParty;
     }
 
-    public String[] getPolicyInterests(){
+    public ArrayList<String> getPolicyInterests(){
         return policyInterests;
     }
 
-    public void setPolicyInterests(String[] policyInterests){
-        this.policyInterests = policyInterests;
-    }
+    public void setPolicyInterests(ArrayList<String> policyInterests){ this.policyInterests = policyInterests; }
 }

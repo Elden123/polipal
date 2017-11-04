@@ -8,6 +8,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.io.StringBufferInputStream;
+import java.util.ArrayList;
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
@@ -33,8 +34,8 @@ public class FirebaseHandler {
         user.child("email").setValue(data.getEmail());
         user.child("password").setValue(data.getPassword());
         user.child("politicalParty").setValue(data.getPoliticalParty());
-        user.child("hobbies").setValue(stringArrayToCSV(data.getHobbies()));
-        user.child("policyInterests").setValue(stringArrayToCSV(data.getPolicyInterests()));
+        user.child("hobbies").setValue(arrayListToCSV(data.getHobbies()));
+        user.child("policyInterests").setValue(arrayListToCSV(data.getPolicyInterests()));
     }
 
     private final Semaphore lock = new Semaphore(0);
@@ -82,10 +83,10 @@ public class FirebaseHandler {
         return data;
     }
 
-    private String stringArrayToCSV(String[] array){
+    private String arrayListToCSV(ArrayList<String> array){
         StringBuilder output = new StringBuilder();
-        for(int i = 0; i < array.length; i++){
-            output.append(array[i] + ",");
+        for(int i = 0; i < array.size(); i++){
+            output.append(array.get(i) + ",");
         }
 
         output.deleteCharAt(output.length() - 1);
