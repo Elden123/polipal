@@ -27,8 +27,13 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import com.github.beijingstrongbow.Communication.FirebaseHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +68,22 @@ public class Register extends AppCompatActivity implements LoaderCallbacks<Curso
     private View mProgressView;
     private View mLoginFormView;
 
+    UserData userData;
+    FirebaseHandler firebaseHandler = new FirebaseHandler();
+
+    EditText firstName;
+    RadioGroup politicalAffiliation;
+
+    CheckBox taxes;
+    CheckBox healthCare;
+    CheckBox secondAmendmentRights;
+    CheckBox immigration;
+    CheckBox unemploymet;
+    CheckBox drugPolicy;
+    CheckBox abortion;
+    CheckBox climateChange;
+    CheckBox minimumWage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,10 +93,21 @@ public class Register extends AppCompatActivity implements LoaderCallbacks<Curso
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
 
-
-
         View view = this.getWindow().getDecorView();
         view.setBackgroundColor(Color.parseColor("#303030"));
+
+        firstName = (EditText) findViewById(R.id.firstNameame);
+        politicalAffiliation = (RadioGroup) findViewById(R.id.politicalAffiliationRadioGroup);
+
+        taxes = (CheckBox) findViewById(R.id.taxes);
+        healthCare = (CheckBox) findViewById(R.id.healthCare);
+        secondAmendmentRights = (CheckBox) findViewById(R.id.secondAmendmentRights);
+        immigration = (CheckBox) findViewById(R.id.immigration);
+        unemploymet = (CheckBox) findViewById(R.id.unemployment);
+        drugPolicy = (CheckBox) findViewById(R.id.drugPolicy);
+        abortion = (CheckBox) findViewById(R.id.abortion);
+        climateChange = (CheckBox) findViewById(R.id.climateChange);
+        minimumWage = (CheckBox) findViewById(R.id.minimumWage);
 
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -91,7 +123,6 @@ public class Register extends AppCompatActivity implements LoaderCallbacks<Curso
 
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
-            @Override
             public void onClick(View view) {
                 attemptLogin();
             }
@@ -202,9 +233,90 @@ public class Register extends AppCompatActivity implements LoaderCallbacks<Curso
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
+
+            int selectedAffiliatino = politicalAffiliation.getCheckedRadioButtonId();
+            RadioButton affiliatoinSelected = (RadioButton) findViewById(selectedAffiliatino);
+
+
+
+            userData = new UserData(firstName.getText().toString());
+            userData.setEmail(mEmailView.getText().toString());
+            userData.setPassword(mPasswordView.getText().toString());
+            userData.setPoliticalParty(affiliatoinSelected.getText().toString());
+            userData.setPolicyInterests(topicList());
+            userData.setHobbies(hobbiesList());
+            firebaseHandler.addNewUser(userData);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
         }
+    }
+
+    public ArrayList<String> topicList() {
+        ArrayList<String> topics = new ArrayList<String>();
+
+        if(taxes.isChecked()) {
+            topics.add(taxes.getText().toString());
+        }
+        if(healthCare.isChecked()) {
+            topics.add(healthCare.getText().toString());
+        }
+        if(secondAmendmentRights.isChecked()) {
+            topics.add(secondAmendmentRights.getText().toString());
+        }
+        if(immigration.isChecked()) {
+            topics.add(immigration.getText().toString());
+        }
+        if(unemploymet.isChecked()) {
+            topics.add(unemploymet.getText().toString());
+        }
+        if(drugPolicy.isChecked()) {
+            topics.add(drugPolicy.getText().toString());
+        }
+        if(abortion.isChecked()) {
+            topics.add(abortion.getText().toString());
+        }
+        if(climateChange.isChecked()) {
+            topics.add(climateChange.getText().toString());
+        }
+        if(minimumWage.isChecked()) {
+            topics.add(minimumWage.getText().toString());
+        }
+
+        return(topics);
+    }
+
+    public ArrayList<String> hobbiesList() {
+        ArrayList<String> hobbies = new ArrayList<String>();
+
+        if(taxes.isChecked()) {
+            hobbies.add(taxes.getText().toString());
+        }
+        if(healthCare.isChecked()) {
+            hobbies.add(healthCare.getText().toString());
+        }
+        if(secondAmendmentRights.isChecked()) {
+            hobbies.add(secondAmendmentRights.getText().toString());
+        }
+        if(immigration.isChecked()) {
+            hobbies.add(immigration.getText().toString());
+        }
+        if(unemploymet.isChecked()) {
+            hobbies.add(unemploymet.getText().toString());
+        }
+        if(drugPolicy.isChecked()) {
+            hobbies.add(drugPolicy.getText().toString());
+        }
+        if(abortion.isChecked()) {
+            hobbies.add(abortion.getText().toString());
+        }
+        if(climateChange.isChecked()) {
+            hobbies.add(climateChange.getText().toString());
+        }
+        if(minimumWage.isChecked()) {
+            hobbies.add(minimumWage.getText().toString());
+        }
+
+        return(hobbies);
     }
 
     private boolean isEmailValid(String email) {
