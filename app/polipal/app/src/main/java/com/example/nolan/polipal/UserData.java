@@ -35,7 +35,7 @@ public class UserData {
     public void setEmail(String email){ this.email = email; }
 
     public String getPassword(){
-        return email;
+        return password;
     }
 
     public void setPassword(String password){
@@ -58,8 +58,8 @@ public class UserData {
         return politicalParty;
     }
 
-    public void setPoliticalParty(String politicalParty){
-        this.politicalParty = politicalParty;
+    public void setPoliticalParty(String value){
+        this.politicalParty = value;
     }
 
     public ArrayList<String> getPolicyInterests(){
