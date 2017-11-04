@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#424242"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.nolan.polipal.Conversation"
     tools:showIn="@layout/activity_conversation">
@@ -12,6 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
+        android:background="#424242"
+        android:textColor="#FFFFFF"
         android:text="@string/large_text" />
 
 </android.support.v4.widget.NestedScrollView>

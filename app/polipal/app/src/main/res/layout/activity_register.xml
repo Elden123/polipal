@@ -34,6 +34,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <EditText
+                    android:id="@+id/firstNameame"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="First Name"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="#ffffff" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
                 <AutoCompleteTextView
                     android:id="@+id/email"
                     android:layout_width="match_parent"
@@ -41,7 +57,9 @@
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:backgroundTint="#92CBC5"
+                    android:textColor="#ffffff" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -53,15 +71,218 @@
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/prompt_password"
+                    android:hint="Password"
                     android:imeActionId="@+id/login"
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textColor="#ffffff" />
 
             </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/politicalAffiliationText"
+                android:text="Select your political affiliation"
+                android:textColor="#7E7E7E" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/politicalAffiliationRadioGroup">
+
+                    <RadioButton
+                        android:text="Liberal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/liberalB"
+                        android:textColor="#7E7E7E" />
+
+                    <RadioButton
+                        android:text="Moderate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/moderateB"
+                        android:textColor="#7E7E7E" />
+
+                    <RadioButton
+                        android:text="Conservative"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/conservativeB"
+                        android:textColor="#7E7E7E" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/politicalTopicsText"
+                android:text="Select which political topics interest you."
+                android:textColor="#7E7E7E"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/taxes"
+                android:text="Taxes"
+                android:textColor="#7E7E7E"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/healthCare"
+                android:text="Health Care"
+                android:textColor="#7E7E7E"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/secondAmendmentRights"
+                android:text="2nd Amendment Rights"
+                android:textColor="#7E7E7E"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/immigration"
+                android:text="Immigration"
+                android:textColor="#7E7E7E"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/unemployment"
+                android:text="Unemployment"
+                android:textColor="#7E7E7E"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/drugPolicy"
+                android:text="Drug Policy"
+                android:textColor="#7E7E7E"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/abortion"
+                android:text="Abortion"
+                android:textColor="#7E7E7E"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/climateChange"
+                android:text="Climate Change"
+                android:textColor="#7E7E7E"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/minimumWage"
+                android:text="Minimum Wage"
+                android:textColor="#7E7E7E"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/hobbiesText"
+                android:textColor="#7E7E7E"
+                android:text="Select your hobbies."/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/learning"
+                android:textColor="#7E7E7E"
+                android:text="Learning"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cooking"
+                android:textColor="#7E7E7E"
+                android:text="Cooking"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/photography"
+                android:textColor="#7E7E7E"
+                android:text="Photography"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/writing"
+                android:textColor="#7E7E7E"
+                android:text="Writing"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/playingSports"
+                android:textColor="#7E7E7E"
+                android:text="Playing Sports"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/shopping"
+                android:textColor="#7E7E7E"
+                android:text="Shopping"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/camping"
+                android:textColor="#7E7E7E"
+                android:text="Camping"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/drawing"
+                android:textColor="#7E7E7E"
+                android:text="Drawing"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#7E7E7E"
+                android:id="@+id/videoGames"
+                android:text="Video Games"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#7E7E7E"
+                android:id="@+id/music"
+                android:text="Music"/>
 
             <Button
                 android:id="@+id/email_sign_in_button"
@@ -69,8 +290,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/action_sign_in"
-                android:textStyle="bold" />
+                android:text="Register"
+                android:textStyle="bold"
+                android:background="#92CBC5" />
 
         </LinearLayout>
     </ScrollView>
