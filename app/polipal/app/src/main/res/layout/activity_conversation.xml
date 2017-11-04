@@ -15,52 +15,73 @@
         android:text="Matched on: "
         android:textSize="22dp"/>
 
-    <!--<TableLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/matchedText"
+        android:gravity="bottom"
+        android:id="@+id/rLayout">
 
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/sLayout">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hey"
-                android:textColor="#7E7E7E"
-                android:layout_alignParentLeft="true"
-                android:layout_gravity="left"/>
+                android:layout_weight="1"
+                android:id="@+id/lLayout">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:text="asdf"
-                android:textColor="#7E7E7E"
-                android:layout_gravity="right"/>
-        </TableRow>
+                <!--<LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:text="Button 1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"/>
+
+                    <TextView
+                        android:text="Button 2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:text="Button 3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"/>
+
+                    <TextView
+                        android:text="Button 4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"/>
+                </LinearLayout>-->
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
 
 
-
-    </TableLayout>-->
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hey"
-        android:textColor="#7E7E7E"
-        android:layout_alignParentLeft="true"
-        android:layout_gravity="left"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:text="asdf"
-        android:textColor="#7E7E7E"
-        android:layout_gravity="right"/>
 
 
 </android.widget.RelativeLayout>
