@@ -23,7 +23,7 @@ public class MessageHandler {
     private String otherUser;
 
     private String messageLocation;
-    
+
     private Conversation c;
 
     public static MessageHandler mh;
@@ -74,10 +74,12 @@ public class MessageHandler {
                         String sender = "";
                         message = (String) dataSnapshot.child("message").getValue();
                         sender = (String) dataSnapshot.child("sender").getValue();
-                        if(!sender.equals(thisUser) && (!message.equals(lastMessage) || !sender.equals(lastSender))){
-                            lastMessage = message;
-                            lastSender = sender;
-                            c.showTheirMessage(message);
+                        if(sender != null && message != null){
+                            if(!sender.equals(thisUser) && (!message.equals(lastMessage) || !sender.equals(lastSender))){
+                                lastMessage = message;
+                                lastSender = sender;
+                                c.showTheirMessage(message);
+                            }
                         }
                     }
                 });
