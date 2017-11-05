@@ -41,17 +41,16 @@ public class MessageHandler {
     }
 
     public void sendMessage(String message){
-        long timestamp = System.currentTimeMillis();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("/Conversations/" + messageLocation + "/" + timestamp + "/");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("/Conversations/" + messageLocation + "/");
         ref.child("message").setValue(message);
         ref.child("sender").setValue(thisUser);
-        if(lastMessage > 0){
+        /*if(lastMessage > 0){
             ref.getParent().child(Long.toString(lastMessage)).child("message").removeValue();
             ref.getParent().child(Long.toString(lastMessage)).child("sender").removeValue();
             ref.getParent().child(Long.toString(lastMessage)).removeValue();
-        }
+        }*/
 
-        lastMessage = timestamp;
+        //lastMessage = timestamp;
     }
 
     public void registerMessageListener(){
@@ -62,10 +61,7 @@ public class MessageHandler {
                     @Override
                     public void run(){
                         String message = "";
-                        for(DataSnapshot d : dataSnapshot.getChildren()){
-                            lastMessage = Long.parseLong(d.getKey());
-                            message = (String) d.child("message").getValue();
-                        }
+                        message = (String) dataSnapshot.child("message").getValue();
                         c.showTheirMessage(message);
                     }
                 });

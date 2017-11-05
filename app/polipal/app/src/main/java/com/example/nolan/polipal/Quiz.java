@@ -43,7 +43,7 @@ public class Quiz extends AppCompatActivity {
         howLongGroup = (RadioGroup) findViewById(R.id.howLongRadioGroup);
 
         Button joinB = (Button) findViewById(R.id.joinB);
-
+        System.out.println("****************" + topics.size());
         for(int i = 0; i < topics.size(); i++) {
             checkBox = new CheckBox(this);
             checkBox.setText(topics.get(i));
@@ -100,8 +100,7 @@ public class Quiz extends AppCompatActivity {
     }
 
     public ArrayList<String> getTopics() {
-        final Bundle extras = getIntent().getExtras();
-        return(extras.getStringArrayList("userTopics"));
+        return(UserData.ud.getPolicyInterests());
     }
 
 
