@@ -38,6 +38,7 @@ public class UserHandler {
         user.child("politicalParty").setValue(data.getPoliticalParty());
         user.child("hobbies").setValue(arrayListToCSV(data.getHobbies()));
         user.child("policyInterests").setValue(arrayListToCSV(data.getPolicyInterests()));
+        user.child("points").setValue("0/0");
     }
 
     private final UserData user = new UserData();
@@ -100,6 +101,8 @@ public class UserHandler {
                                 case "politicalParty":
                                     user.setPoliticalParty(value);
                                     break;
+                                case "points":
+                                    user.setPoints(value);
                                 default:
                                     i--;
                             }
@@ -177,5 +180,9 @@ public class UserHandler {
         onlineUsersRef.child(data.getUID()).child("topChoices").removeValue();
         onlineUsersRef.child(data.getUID()).child("time").removeValue();
         onlineUsersRef.child(data.getUID()).removeValue();
+    }
+
+    public void updatePoints(UserData data){
+        usersRef.child(data.getUID()).child("points").setValue(data.getPointsString());
     }
 }

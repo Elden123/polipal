@@ -1,5 +1,7 @@
 package com.example.nolan.polipal;
 
+import com.github.beijingstrongbow.Communication.UserHandler;
+
 import java.util.ArrayList;
 
 /**
@@ -21,6 +23,9 @@ public class UserData {
     private ArrayList<String> policyInterests;
 
     private String UID;
+
+    //represented as <total points>/<total conversations> i.e. 1012/5 for 1012 points over 5 conversations
+    private String pointsString;
 
     public UserData(){}
 
@@ -73,4 +78,25 @@ public class UserData {
     public String getUID() { return UID; }
 
     public void setUID(String UID) { this.UID = UID; }
+
+    public void setPoints(String points){
+        this.pointsString = points;
+    }
+
+    public void addPoints(int add, UserHandler handler){
+        int points = Integer.parseInt(pointsString.substring(0, pointsString.indexOf("/")));
+        int conversations = Integer.parseInt(pointsString.substring(pointsString.indexOf("/")+1));
+        pointsString = (points+add) + "/" + (conversations+1);
+        handler.updatePoints(this);
+    }
+
+    public int getPoints(){
+        int points = Integer.parseInt(pointsString.substring(0, pointsString.indexOf("/")));
+        int conversations = Integer.parseInt(pointsString.substring(pointsString.indexOf("/")+1));
+        return points/conversations;
+    }
+
+    public String getPointsString(){
+        return pointsString;
+    }
 }
