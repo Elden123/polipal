@@ -12,6 +12,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
+import android.widget.Scroller;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +25,7 @@ import java.util.ArrayList;
 public class Conversation extends AppCompatActivity {
 
     LinearLayout holderLayout;
+    ScrollView sView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,7 @@ public class Conversation extends AppCompatActivity {
         setContentView(R.layout.activity_conversation);
 
         MessageHandler.mh.setConversation(this);
+        sView = (ScrollView) findViewById(R.id.sLayout);
 
         ArrayList<String> matchedOn = getMatchedOn();
         String buffer = "";
@@ -41,14 +45,14 @@ public class Conversation extends AppCompatActivity {
         noMatchError();
 
 
-        for(int i = 0; i < matchedOn.size(); i++) {
+        for (int i = 0; i < matchedOn.size(); i++) {
             buffer = matchedText.getText().toString();
-            if(i > 0) {
+            if (i > 0) {
                 matchedText.setText(buffer + ", " + matchedOn.get(i));
             } else {
                 matchedText.setText(buffer + matchedOn.get(i));
             }
-            
+
         }
 
         sendButton.setOnClickListener(new View.OnClickListener() {
@@ -81,10 +85,10 @@ public class Conversation extends AppCompatActivity {
 
         LLParams.weight = 1;
         tv1Params.weight = 1;
-        tv1Params.setMargins(0,30,0,30);
+        tv1Params.setMargins(0, 30, 0, 30);
         tv1.setLayoutParams(tv1Params);
 
-        if(isUser) {
+        if (isUser) {
             tv1.setTextColor(Color.parseColor("#48C5FC"));
         } else {
             tv1.setTextColor(Color.parseColor("#E8336F"));
@@ -99,12 +103,10 @@ public class Conversation extends AppCompatActivity {
         holderLayout.addView(LL);
 
 
-
-
     }
 
     public void noMatchError() {
-        if(MessageHandler.mh.isEmpty()) {
+        if (MessageHandler.mh.isEmpty()) {
             Toast.makeText(Conversation.this, "No match was found",
                     Toast.LENGTH_LONG).show();
         }
@@ -119,8 +121,10 @@ public class Conversation extends AppCompatActivity {
         matchedOn.add("Cooking");
         matchedOn.add("Playing Sports");
 
-        return(matchedOn);
+        return (matchedOn);
     }
+<<<<<<
+    <HEAD
 
     /*
 LinearLayout LL = new LinearLayout(this);
@@ -166,17 +170,15 @@ LinearLayout LL = new LinearLayout(this);
         holderLayout.addView(LL);
      */
 
-    //this stuff could go wrong
-
-    Button exitB = (Button) findViewById(R.id.exitB);
+//this stuff could go wrong, feel free to delete
+        Button exitB = (Button) findViewById(R.id.exitB);
 
         exitB.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent toExit = new Intent(Conversation.this, com.example.nolan.polipal.Exit.class);
-            Conversation.this.startActivity(toExit);
-        }
-    });
-
+            @Override
+            public void onClick (View v){
+                Intent toExit = new Intent(Conversation.this, com.example.nolan.polipal.Exit.class);
+                Conversation.this.startActivity(toExit);
+            }
+        });
 
 }

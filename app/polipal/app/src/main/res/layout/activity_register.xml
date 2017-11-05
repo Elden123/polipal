@@ -294,6 +294,18 @@
                 android:textStyle="bold"
                 android:background="#92CBC5" />
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+
         </LinearLayout>
 
     </ScrollView>
