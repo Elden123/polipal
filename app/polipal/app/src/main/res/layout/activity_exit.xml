@@ -12,6 +12,11 @@
 
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/matchedText"
+        android:textColor="#7E7E7E"
+        android:textSize="12dp"
         android:gravity="center" />
 
 </RelativeLayout>
