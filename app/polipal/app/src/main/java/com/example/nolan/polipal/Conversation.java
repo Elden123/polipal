@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.beijingstrongbow.Communication.MessageHandler;
 
@@ -37,10 +38,17 @@ public class Conversation extends AppCompatActivity {
         Button sendButton = (Button) findViewById(R.id.sendButton);
         final EditText messageToSend = (EditText) findViewById(R.id.messageToSend);
 
+        noMatchError();
+
 
         for(int i = 0; i < matchedOn.size(); i++) {
             buffer = matchedText.getText().toString();
-            matchedText.setText(buffer + ", " + matchedOn.get(i));
+            if(i > 0) {
+                matchedText.setText(buffer + ", " + matchedOn.get(i));
+            } else {
+                matchedText.setText(buffer + matchedOn.get(i));
+            }
+            
         }
 
         sendButton.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +101,13 @@ public class Conversation extends AppCompatActivity {
 
 
 
+    }
+
+    public void noMatchError() {
+        if(MessageHandler.mh.isEmpty()) {
+            Toast.makeText(Conversation.this, "No match was found",
+                    Toast.LENGTH_LONG).show();
+        }
     }
 
     public ArrayList<String> getMatchedOn() {

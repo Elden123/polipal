@@ -39,13 +39,11 @@ public class ConversationFactory {
             conversationRequests.child(thisUser.getUID()).child("sender").removeValue();
             conversationRequests.child(thisUser.getUID()).removeValue();
 
-            return new MessageHandler(request[1], thisUser.getUID(), request[0]);
+            return new MessageHandler(request[1], thisUser.getUID(), request[0], false);
         }
         else {
             String uid = findNewMatch(thisUser, topChoices, time);
-            if(uid.equals("-openopenopenopenope")){
-                //popup box
-            }
+
             String messageUid = MessageHandler.getNewMessageLocation();
 
             conversationRequests.child(uid).child("sender").setValue(thisUser.getUID());
@@ -53,7 +51,11 @@ public class ConversationFactory {
 
             handler.removeFromOnline(thisUser);
 
-            return new MessageHandler(messageUid, thisUser.getUID(), uid);
+            if(uid.equals("-openopenopenopenope")){
+                return new MessageHandler(messageUid, thisUser.getUID(), uid, true);
+            }
+
+            return new MessageHandler(messageUid, thisUser.getUID(), uid, false);
         }
     }
 
@@ -82,10 +84,6 @@ public class ConversationFactory {
                         String data = in.readLine();
                         System.out.println(data);
                         String[] uidSplit = data.split("\"-");
-
-                        for(String s : uidSplit){
-                            System.out.println(s);
-                        }
 
                         for(int i = 1; i < uidSplit.length; i+=3){
                             String uid = "-" + uidSplit[i].substring(0, 19);

@@ -29,15 +29,22 @@ public class MessageHandler {
 
     public static MessageHandler mh;
 
-    public MessageHandler(String messageLocation, String thisUser, String otherUser) {
+    private boolean empty;
+
+    public MessageHandler(String messageLocation, String thisUser, String otherUser, boolean empty) {
         conversationRef = FirebaseDatabase.getInstance().getReference("/Conversations/").child(messageLocation);
         this.thisUser = thisUser;
         this.otherUser = otherUser;
         this.messageLocation = messageLocation;
+        this.empty = empty;
     }
 
     public void setConversation(Conversation c) {
         this.c = c;
+    }
+
+    public boolean isEmpty() {
+        return empty;
     }
 
     public void sendMessage(String message){
