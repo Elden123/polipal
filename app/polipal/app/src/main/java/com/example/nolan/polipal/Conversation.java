@@ -33,6 +33,7 @@ public class Conversation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conversation);
 
+		MessageSentiment ms = new MessageSentiment("ml-OTXlWUgIjwd", this);
         MessageHandler.mh.setConversation(this);
         sView = (ScrollView) findViewById(R.id.sLayout);
 
@@ -133,6 +134,24 @@ public class Conversation extends AppCompatActivity {
         matchedOn.add("Playing Sports");
 
         return (matchedOn);
+    }
+	
+	public void chillWarning() {
+
+        AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+        helpBuilder.setTitle("Warning");
+        helpBuilder.setMessage("You seem to be getting a little heated. Please calm down.");
+        helpBuilder.setPositiveButton("Ok",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do nothing but close the dialog
+                    }
+                });
+
+        // Remember, create doesn't show the dialog
+        AlertDialog helpDialog = helpBuilder.create();
+        helpDialog.show();
     }
     /*
 LinearLayout LL = new LinearLayout(this);
