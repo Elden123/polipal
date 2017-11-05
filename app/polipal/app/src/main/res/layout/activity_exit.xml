@@ -14,19 +14,27 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/matchedText"
+        android:id="@+id/disp"
         android:textColor="#7E7E7E"
-        android:textSize="12dp"
+        android:textSize="20dp"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sco"
+        android:textColor="#7E7E7E"
+        android:textSize="15dp"
         android:gravity="center" />
 
     <Button
-        android:id="@+id/sendButton"
-        android:layout_width="wrap_content"
+        android:text="Go Again?"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:text="Send"
-        android:background="#92CBC5"/>
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="88dp"
+        android:id="@+id/returnHomeB"
+        android:layout_width="150dp"
+        android:background="#92CBC5" />
 
 </RelativeLayout>
