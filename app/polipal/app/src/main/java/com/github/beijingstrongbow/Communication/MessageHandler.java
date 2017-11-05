@@ -73,6 +73,10 @@ public class MessageHandler {
 
     private String sender = "";
 
+    private int counter = 0;
+    private String msg = "";
+    private String msg1 = "";
+
     public void registerMessageListener(){
         conversationRef.child("message").addValueEventListener(new ValueEventListener() {
             @Override
@@ -85,6 +89,15 @@ public class MessageHandler {
                             message = (String) dataSnapshot.getValue();
                             System.out.println(sender + " " + thisUser);
                             if(sender != null && message != null){
+                                if(sender.equals(thisUser)) {
+                                    msg += message + " ";
+                                    counter++;
+                                }
+                                if(counter >= 1) {
+                                    MessageSentiment.getInstance().manageScore(msg);
+                                    counter = 0;
+                                    msg = "";
+                                }
                                 if(!sender.equals(thisUser) && (!message.equals(lastMessage) || !sender.equals(lastSender))){
                                     lastMessage = message;
                                     lastSender = sender;

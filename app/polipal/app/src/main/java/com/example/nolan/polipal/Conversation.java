@@ -1,5 +1,7 @@
 package com.example.nolan.polipal;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.constraint.ConstraintLayout;
@@ -19,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.beijingstrongbow.Communication.MessageHandler;
+import com.github.beijingstrongbow.Communication.MessageSentiment;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -27,12 +30,13 @@ public class Conversation extends AppCompatActivity {
 
     LinearLayout holderLayout;
     ScrollView sView;
-
+    static MessageSentiment ms;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conversation);
 
+        ms = new MessageSentiment("ml-OTXlWUgIjwd", this);
         MessageHandler.mh.setConversation(this);
         sView = (ScrollView) findViewById(R.id.sLayout);
 
@@ -70,7 +74,7 @@ public class Conversation extends AppCompatActivity {
         exitB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v){
-                Intent toExit = new Intent(Conversation.this, com.example.nolan.polipal.Exit.class);
+                Intent toExit = new Intent(Conversation.this, Exit.class);
                 Conversation.this.startActivity(toExit);
             }
         });
@@ -126,13 +130,31 @@ public class Conversation extends AppCompatActivity {
     public ArrayList<String> getMatchedOn() {
         ArrayList<String> matchedOn = new ArrayList<String>();
         matchedOn.add("Gun Control");
-        matchedOn.add("Abortion");
-        matchedOn.add("Immigration");
+        matchedOn.add("Climage Change");
+        /*matchedOn.add("Immigration");
         matchedOn.add("Shopping");
         matchedOn.add("Cooking");
-        matchedOn.add("Playing Sports");
+        matchedOn.add("Playing Sports");*/
 
         return (matchedOn);
+    }
+	
+	public void chillWarning() {
+
+        AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+        helpBuilder.setTitle("Warning");
+        helpBuilder.setMessage("You seem to be getting a little heated. Please calm down.");
+        helpBuilder.setPositiveButton("Ok",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do nothing but close the dialog
+                    }
+                });
+
+        // Remember, create doesn't show the dialog
+        AlertDialog helpDialog = helpBuilder.create();
+        helpDialog.show();
     }
     /*
 LinearLayout LL = new LinearLayout(this);

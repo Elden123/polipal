@@ -10,15 +10,28 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.nolan.polipal.Home">
 
+    <ImageView
+        android:layout_height="180dp"
+        android:layout_width="wrap_content"
+        android:background="@drawable/title"
+        />
+
+    <ImageView
+        android:layout_marginTop="150dp"
+        android:layout_height="80dp"
+        android:layout_width="wrap_content"
+        android:background="@drawable/slogan"
+        />
     <Button
         android:text="Login"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="330dp"
         android:id="@+id/signInB"
         android:layout_width="150dp"
-        android:background="#92CBC5" />
+        android:background="#92CBC5"
+        />
 
     <Button
         android:text="Register"
@@ -26,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/signInB"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="40dp"
         android:id="@+id/registerB"
         android:background="#92CBC5" />
 </RelativeLayout>
