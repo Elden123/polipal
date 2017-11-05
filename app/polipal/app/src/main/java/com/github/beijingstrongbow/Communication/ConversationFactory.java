@@ -19,7 +19,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class ConversationFactory {
 
-    private DatabaseReference conversationRequests = FirebaseDatabase.getInstance().getReference("/ConversationRequests");
+    private DatabaseReference conversationRequests = FirebaseDatabase.getInstance().getReference("/ConversationRequests/");
 
     private UserData thisUser;
 
@@ -52,6 +52,7 @@ public class ConversationFactory {
             handler.removeFromOnline(thisUser);
 
             if(uid.equals("-openopenopenopenope")){
+
                 return new MessageHandler(messageUid, thisUser.getUID(), uid, true);
             }
 
@@ -94,6 +95,7 @@ public class ConversationFactory {
                                 toReturn[0] = "-" + senderUID.substring(0, senderUID.length()-1);
                                 toReturn[1] = "-" + messageLocation.substring(0,messageLocation.length()-1);
                                 System.out.println("a " + toReturn[0] + " " + toReturn[1]);
+                                conversationRequests.child(uid).removeValue();
                                 lock.release();
                                 runOnce = true;
                                 return;
