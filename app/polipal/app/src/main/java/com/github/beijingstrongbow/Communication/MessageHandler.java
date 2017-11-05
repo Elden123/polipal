@@ -82,7 +82,7 @@ public class MessageHandler {
                         @Override
                         public void run(){
                             String message = "";
-                            message = (String) dataSnapshot.child("message").getValue();
+                            message = (String) dataSnapshot.getValue();
                             System.out.println(sender + " " + thisUser);
                             if(sender != null && message != null){
                                 if(!sender.equals(thisUser) && (!message.equals(lastMessage) || !sender.equals(lastSender))){

@@ -19,7 +19,7 @@ public class Decide extends AppCompatActivity {
 
         Button startConversation = (Button) findViewById(R.id.startConversationB);
 
-        System.out.println(UserData.ud.getPoliticalParty());
+        //System.out.println(UserData.ud.getPoliticalParty());
 
         startConversation.setOnClickListener(new View.OnClickListener() {
             @Override
