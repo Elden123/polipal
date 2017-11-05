@@ -1,5 +1,7 @@
 package com.example.nolan.polipal;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.constraint.ConstraintLayout;
@@ -19,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.beijingstrongbow.Communication.MessageHandler;
+import com.github.beijingstrongbow.Communication.MessageSentiment;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
