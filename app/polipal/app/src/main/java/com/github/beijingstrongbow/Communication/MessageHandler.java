@@ -8,6 +8,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by ericd on 11/4/2017.
@@ -22,9 +23,7 @@ public class MessageHandler {
     private String otherUser;
 
     private String messageLocation;
-
-    private long lastMessage = -1;
-
+    
     private Conversation c;
 
     public static MessageHandler mh;
@@ -60,33 +59,28 @@ public class MessageHandler {
         //lastMessage = timestamp;
     }
 
+    private String lastMessage = "";
+
+    private String lastSender = "";
+
     public void registerMessageListener(){
-        conversationRef.addChildEventListener(new ChildEventListener() {
+        conversationRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChildAdded(final DataSnapshot dataSnapshot, String s) {
+            public void onDataChange(final DataSnapshot dataSnapshot) {
                 c.runOnUiThread(new Runnable(){
                     @Override
                     public void run(){
                         String message = "";
+                        String sender = "";
                         message = (String) dataSnapshot.child("message").getValue();
-                        c.showTheirMessage(message);
+                        sender = (String) dataSnapshot.child("sender").getValue();
+                        if(!sender.equals(thisUser) && (!message.equals(lastMessage) || !sender.equals(lastSender))){
+                            lastMessage = message;
+                            lastSender = sender;
+                            c.showTheirMessage(message);
+                        }
                     }
                 });
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
             }
 
             @Override

@@ -87,7 +87,8 @@ public class ConversationFactory {
 
                         for(int i = 1; i < uidSplit.length; i+=3){
                             String uid = "-" + uidSplit[i].substring(0, 19);
-                            if(uid.equals(thisUser.getUID()) || uid.equals("open")){
+                            System.out.println(uid);
+                            if(uid.equals(thisUser.getUID()) || uid.equals("-openopenopenopenope")){
                                 String senderUID = uidSplit[i+2].substring(0, 20);
                                 String messageLocation = uidSplit[i+1].substring(0, 20);
                                 toReturn[0] = "-" + senderUID.substring(0, senderUID.length()-1);

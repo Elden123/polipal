@@ -18,7 +18,7 @@ public class Exit extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exit);
-        RelativeLayout r = (RelativeLayout) findViewById(R.id.activity_exit);
+        /*RelativeLayout r = (RelativeLayout) findViewById(R.id.activity_exit);
         r.setBackgroundColor(Color.parseColor("#303030"));
 
         int points = 82; //need to fill in with stephanie's score
@@ -58,6 +58,6 @@ public class Exit extends AppCompatActivity {
             TextView sco = (TextView) findViewById(R.id.sco);
             sco.setTextColor(Color.parseColor(color));
             sco.setText(ss1);
-        }
+        }*/
     }
 }
