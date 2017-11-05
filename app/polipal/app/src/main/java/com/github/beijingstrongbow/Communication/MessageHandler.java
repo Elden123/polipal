@@ -23,9 +23,7 @@ public class MessageHandler {
     private String otherUser;
 
     private String messageLocation;
-
-    private long lastMessage = -1;
-
+    
     private Conversation c;
 
     public static MessageHandler mh;
@@ -61,6 +59,10 @@ public class MessageHandler {
         //lastMessage = timestamp;
     }
 
+    private String lastMessage = "";
+
+    private String lastSender = "";
+
     public void registerMessageListener(){
         conversationRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -69,8 +71,14 @@ public class MessageHandler {
                     @Override
                     public void run(){
                         String message = "";
+                        String sender = "";
                         message = (String) dataSnapshot.child("message").getValue();
-                        c.showTheirMessage(message);
+                        sender = (String) dataSnapshot.child("sender").getValue();
+                        if(!sender.equals(thisUser) && (!message.equals(lastMessage) || !sender.equals(lastSender))){
+                            lastMessage = message;
+                            lastSender = sender;
+                            c.showTheirMessage(message);
+                        }
                     }
                 });
             }
