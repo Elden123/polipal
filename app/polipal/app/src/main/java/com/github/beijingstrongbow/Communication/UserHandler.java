@@ -48,7 +48,7 @@ public class UserHandler {
     private boolean runOnce = false;
 
     public UserData retrieveUser(final String email, final String password){
-
+        System.out.println(email + " " + password);
         final Semaphore lock = new Semaphore(0);
 
         Thread t = new Thread(new Runnable(){
@@ -108,7 +108,7 @@ public class UserHandler {
                                 default:
                                     i--;
                             }
-
+                            System.out.println(user.getEmail() + " " + user.getPassword() + " " + user.getName() + " " + user.getPoliticalParty() + " " + user.getPolicyInterests() + " " + user.getHobbies());
                             if(user.getEmail() != null && user.getPassword() != null && user.getName() != null && user.getPoliticalParty() != null && user.getPolicyInterests() != null && user.getHobbies() != null){
 
 

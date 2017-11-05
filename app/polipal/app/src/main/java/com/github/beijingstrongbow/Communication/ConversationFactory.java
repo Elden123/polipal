@@ -30,8 +30,8 @@ public class ConversationFactory {
     public MessageHandler findConversation(ArrayList<String> topChoices, String time, UserHandler handler){
 
         handler.goOnline(thisUser, topChoices, time);
+        System.out.println("here");
         String[] request = findInRequests();
-        System.out.print("123");
         System.out.println(request[0] + " " + request[1]);
         if(request[0] != null && !request[1].equals("")){
             handler.removeFromOnline(thisUser);
@@ -43,7 +43,9 @@ public class ConversationFactory {
         }
         else {
             String uid = findNewMatch(thisUser, topChoices, time);
-
+            if(uid.equals("open")){
+                //popup box
+            }
             String messageUid = MessageHandler.getNewMessageLocation();
 
             conversationRequests.child(uid).child("sender").setValue(thisUser.getUID());
@@ -78,12 +80,12 @@ public class ConversationFactory {
                         BufferedReader in = new BufferedReader(new InputStreamReader(c.getInputStream()));
 
                         String data = in.readLine();
-
+                        System.out.println(data);
                         String[] uidSplit = data.split("\"-");
 
                         for(int i = 1; i < uidSplit.length; i+=3){
                             String uid = "-" + uidSplit[i].substring(0, 19);
-                            if(uid.equals(thisUser.getUID())){
+                            if(uid.equals(thisUser.getUID()) || uid.equals("open")){
                                 String senderUID = uidSplit[i+2].substring(0, 20);
                                 String messageLocation = uidSplit[i+1].substring(0, 20);
                                 toReturn[0] = "-" + senderUID.substring(0, senderUID.length()-1);
@@ -140,16 +142,16 @@ public class ConversationFactory {
                     String[] json = data.split(":|\",|\\},");
 
 
-                    for(int i = 0; i < json.length - 1; i+=2){
+                    for(int i = 0; i < json.length - 1; i+=2) {
                         String key = json[i].replaceAll("\"", "");
-                        String value = json[i+1].replaceAll("\"", "");
+                        String value = json[i + 1].replaceAll("\"", "");
                         value = value.replaceAll("\\{", "");
                         value = value.replaceAll("\\}", "");
-                        if(key.charAt(1) == '-'){
+                        if (key.charAt(1) == '-' && !key.equals(user.getUID())) {
                             key = key.replaceAll("\\{", "");
                             o_uid = key;
                         }
-                        switch(key) {
+                        switch (key) {
                             case "{politicalParty":
                                 o_politicalParty = value;
                                 break;
@@ -163,35 +165,39 @@ public class ConversationFactory {
                                 i--;
                                 break;
                         }
-                    }
-                    if(o_uid != null && o_time != null && o_topics != null && o_politicalParty != null && !o_uid.equals(user.getUID())){
-                        if(o_time.equals(time) &&
-                                ((o_politicalParty.equals("Conservative") && (user.getPoliticalParty().equals("Liberal") || user.getPoliticalParty().equals("Moderate"))) ||
-                                (o_politicalParty.equals("Liberal") && (user.getPoliticalParty().equals("Conservative") || user.getPoliticalParty().equals("Moderate"))) ||
-                                (o_politicalParty.equals("Moderate") && (user.getPoliticalParty().equals("Liberal") || user.getPoliticalParty().equals("Conservative"))))){
-                            int similarity = 0;
 
-                            for(int i = 0; i < 3; i++){
-                                for(int j = 0; j < 3; j++){
-                                    System.out.println(o_topics.get(i) + " " + topChoices.get(j));
-                                    if(o_topics.get(i).equals(topChoices.get(j))){
-                                        similarity++;
+                        if (o_uid != null && o_time != null && o_topics != null && o_politicalParty != null && !o_uid.equals(user.getUID())) {
+                            if (o_time.equals(time) &&
+                                    ((o_politicalParty.equals("Conservative") && (user.getPoliticalParty().equals("Liberal") || user.getPoliticalParty().equals("Moderate"))) ||
+                                            (o_politicalParty.equals("Liberal") && (user.getPoliticalParty().equals("Conservative") || user.getPoliticalParty().equals("Moderate"))) ||
+                                            (o_politicalParty.equals("Moderate") && (user.getPoliticalParty().equals("Liberal") || user.getPoliticalParty().equals("Conservative"))))) {
+                                int similarity = 0;
+
+                                for (int j = 0; j < 3; j++) {
+                                    for (int k = 0; k < 3; k++) {
+                                        System.out.println(o_topics.get(i) + " " + topChoices.get(j));
+                                        if (o_topics.get(i).equals(topChoices.get(j))) {
+                                            similarity++;
+                                        }
                                     }
                                 }
-                            }
-                            if(similarity > greatestSimilarity){
+                                if (similarity > greatestSimilarity) {
 
-                                gr_uid = o_uid;
-                                greatestSimilarity = similarity;
+                                    gr_uid = o_uid;
+                                    greatestSimilarity = similarity;
+                                }
                             }
+
+                            o_uid = null;
+                            o_time = null;
+                            o_topics = null;
+                            o_politicalParty = null;
                         }
-
-                        o_uid = null;
-                        o_time = null;
-                        o_topics = null;
-                        o_politicalParty = null;
                     }
 
+                    if(gr_uid == null){
+                        gr_uid = "open";
+                    }
                     toReturn.append(gr_uid);
                 }
                 catch(IOException ex){}
