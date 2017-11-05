@@ -165,4 +165,18 @@ LinearLayout LL = new LinearLayout(this);
         holderLayout = (LinearLayout) findViewById(R.id.lLayout);
         holderLayout.addView(LL);
      */
+
+    //this stuff could go wrong
+
+    Button exitB = (Button) findViewById(R.id.exitB);
+
+        exitB.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent toExit = new Intent(Conversation.this, com.example.nolan.polipal.Exit.class);
+            Conversation.this.startActivity(toExit);
+        }
+    });
+
+
 }
