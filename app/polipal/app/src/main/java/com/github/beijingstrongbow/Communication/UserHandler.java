@@ -41,6 +41,10 @@ public class UserHandler {
         user.child("hobbies").setValue(arrayListToCSV(data.getHobbies()));
         user.child("policyInterests").setValue(arrayListToCSV(data.getPolicyInterests()));
         user.child("points").setValue("0/0");
+        user.child("twitter").setValue(data.getTwitter());
+        user.child("facebook").setValue(data.getFacebook());
+        user.child("instagram").setValue(data.getInstagram());
+        user.child("snapchat").setValue(data.getSnapchat());
     }
 
     private final UserData user = new UserData();
@@ -103,6 +107,18 @@ public class UserHandler {
                                 case "politicalParty":
                                     user.setPoliticalParty(value);
                                     break;
+                                case "twitter":
+                                    user.setTwitter(value);
+                                    break;
+                                case "facebook":
+                                    user.setFacebook(value);
+                                    break;
+                                case "snapchat":
+                                    user.setSnapchat(value);
+                                    break;
+                                case "instagram":
+                                    user.setInstagram(value);
+                                    break;
                                 case "points":
                                     user.setPoints(value);
                                 default:
@@ -125,6 +141,10 @@ public class UserHandler {
                                     user.setPolicyInterests(null);
                                     user.setHobbies(null);
                                     user.setPoliticalParty(null);
+                                    user.setSnapchat(null);
+                                    user.setInstagram(null);
+                                    user.setFacebook(null);
+                                    user.setTwitter(null);
                                     user.setUID(null);
                                 }
                             }
