@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/sLayout"
-            android:layout_marginTop="30dp">
+            android:layout_marginBottom="50dp">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -97,8 +97,7 @@
             android:ems="10"
             android:textColor="#ffffff"
             android:textColorHint="#7E7E7E"
-            android:hint="Message"
-            android:layout_marginTop="30dp"/>
+            android:hint="Message"/>
 
         <Button
             android:id="@+id/sendButton"
@@ -108,35 +107,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:text="Send"
-            android:background="#92CBC5"
-            android:layout_marginTop="30dp"/>
+            android:background="#92CBC5"/>
     </RelativeLayout>
-        <!--<RelativeLayout
-            android:layout_width="293dp"
-            android:layout_height="match_parent">
-
-            <EditText
-                android:id="@+id/messageToSend"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#303030"
-                android:color="#ffffff"
-                android:gravity="bottom" />
-
-
-        </RelativeLayout>
-
-        <Button
-            android:id="@+id/sendButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:background="#80CBC4"
-            android:text="Send"
-            android:textColor="#ffffff" />
-   -->
-
 
 </android.widget.RelativeLayout>
