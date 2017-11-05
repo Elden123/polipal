@@ -121,7 +121,7 @@ public class ConversationFactory {
                     ArrayList<String> o_topics = null;
                     String o_time = null;
                     String o_politicalParty = null;
-                    int greatestSimilarity = 0; //0-3
+                    int greatestSimilarity = -1; //0-3
                     String gr_uid = null;
 
                     URL url = new URL("https://polipal-d2e24.firebaseio.com/OnlineUsers.json");

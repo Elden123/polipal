@@ -212,26 +212,12 @@ public class Login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            //showProgress(true);
+            showProgress(true);
             user = firebaseHandler.retrieveUser(email, password);
+            UserData.ud = user;
 
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Intent i = new Intent(getApplicationContext(), Decide.class);
-
-                    i.putExtra("userName",user.getName());
-                    i.putExtra("userEmail",user.getEmail());
-                    i.putExtra("userPassword",user.getPassword());
-                    i.putExtra("userParty",user.getPoliticalParty());
-                    i.putExtra("userTopics",user.getPolicyInterests());
-                    i.putExtra("userHobbies",user.getHobbies());
-                    i.putExtra("userId",user.getUID());
-                    i.putExtra("userPoints",user.getPoints());
-                    startActivity(i);
-                }
-            }, 3000);
+            Intent i = new Intent(Login.this, Decide.class);
+            Login.this.startActivity(i);
 
             //mAuthTask = new UserLoginTask(email, password);
             //mAuthTask.execute((Void) null);

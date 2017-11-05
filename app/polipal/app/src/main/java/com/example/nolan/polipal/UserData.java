@@ -27,7 +27,8 @@ public class UserData {
     //represented as <total points>/<total conversations> i.e. 1012/5 for 1012 points over 5 conversations
     private String pointsString;
 
-    public UserData(){}
+    public UserData(){
+    }
 
     public UserData(String name){
         this.name = name;
@@ -82,6 +83,8 @@ public class UserData {
     public void setPoints(String points){
         this.pointsString = points;
     }
+
+    public static UserData ud;
 
     public void addPoints(int add, UserHandler handler){
         int points = Integer.parseInt(pointsString.substring(0, pointsString.indexOf("/")));

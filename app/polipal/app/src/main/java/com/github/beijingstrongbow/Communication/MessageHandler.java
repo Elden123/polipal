@@ -2,6 +2,7 @@ package com.github.beijingstrongbow.Communication;
 
 import android.app.Activity;
 
+import com.example.nolan.polipal.Conversation;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,17 +25,19 @@ public class MessageHandler {
 
     private long lastMessage = -1;
 
-    private Activity activity;
+    private Conversation c;
 
-    public MessageHandler(String messageLocation, String thisUser, String otherUser){
+    public static MessageHandler mh;
+
+    public MessageHandler(String messageLocation, String thisUser, String otherUser) {
         conversationRef = FirebaseDatabase.getInstance().getReference("/Conversations/").child(messageLocation);
         this.thisUser = thisUser;
         this.otherUser = otherUser;
         this.messageLocation = messageLocation;
     }
 
-    public void setActivity(Activity activity){
-        this.activity = activity;
+    public void setConversation(Conversation c) {
+        this.c = c;
     }
 
     public void sendMessage(String message){
@@ -55,15 +58,15 @@ public class MessageHandler {
         conversationRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(final DataSnapshot dataSnapshot, String s) {
-                activity.runOnUiThread(new Runnable(){
+                c.runOnUiThread(new Runnable(){
                     @Override
                     public void run(){
-                        String message;
+                        String message = "";
                         for(DataSnapshot d : dataSnapshot.getChildren()){
                             lastMessage = Long.parseLong(d.getKey());
                             message = (String) d.child("message").getValue();
                         }
-                        //showTheirMessage(message);
+                        c.showTheirMessage(message);
                     }
                 });
             }

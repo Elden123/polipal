@@ -19,23 +19,15 @@ public class Decide extends AppCompatActivity {
 
         Button startConversation = (Button) findViewById(R.id.startConversationB);
 
-        final Bundle extras = getIntent().getExtras();
+        System.out.println(UserData.ud.getPoliticalParty());
 
         startConversation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(getApplicationContext(), Quiz.class);
+                Intent i = new Intent(Decide.this, Quiz.class);
+                Decide.this.startActivity(i);
 
-                i.putExtra("userName",extras.getString("userName"));
-                i.putExtra("userEmail",extras.getString("userEmail"));
-                i.putExtra("userPassword",extras.getString("userPassword"));
-                i.putExtra("userParty",extras.getString("userParty"));
-                i.putExtra("userTopics",extras.getStringArrayList("userTopics"));
-                i.putExtra("userHobbies",extras.getStringArrayList("userHobbies"));
-                i.putExtra("userId",extras.getString("userId"));
-                i.putExtra("userPoints",extras.getInt("userPoints"));
-                startActivity(i);
             }
         });
     }

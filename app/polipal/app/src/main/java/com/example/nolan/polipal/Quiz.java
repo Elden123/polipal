@@ -87,32 +87,16 @@ public class Quiz extends AppCompatActivity {
 
         //pass in picked and howLong
 
-        final Bundle extras = getIntent().getExtras();
-
-        UserData u = new UserData();
-        u.setName(extras.getString("userName"));
-        u.setEmail(extras.getString("userEmail"));
-        u.setPassword(extras.getString("userPassword"));
-        u.setPoliticalParty(extras.getString("userParty"));
-        u.setPolicyInterests(extras.getStringArrayList("userTopics"));
-        u.setHobbies(extras.getStringArrayList("userHobbies"));
-        u.setUID(extras.getString("userId"));
-
-
-        ConversationFactory f = new ConversationFactory(u);
+        ConversationFactory f = new ConversationFactory(UserData.ud);
         MessageHandler mh = f.findConversation(picked, String.valueOf(howLong), UserHandler.instance);
+        MessageHandler.mh = mh;
+        mh.registerMessageListener();
 
-        Intent i = new Intent(getApplicationContext(), Conversation.class);
 
-        i.putExtra("userName",extras.getString("userName"));
-        i.putExtra("userEmail",extras.getString("userEmail"));
-        i.putExtra("userPassword",extras.getString("userPassword"));
-        i.putExtra("userParty",extras.getString("userParty"));
-        i.putExtra("userTopics",extras.getStringArrayList("userTopics"));
-        i.putExtra("userHobbies",extras.getStringArrayList("userHobbies"));
-        i.putExtra("userId",extras.getString("userId"));
-        i.putExtra("userPoints",extras.getInt("userPoints"));
-        startActivity(i);
+
+        Intent i = new Intent(Quiz.this, Conversation.class);
+        Quiz.this.startActivity(i);
+
     }
 
     public ArrayList<String> getTopics() {

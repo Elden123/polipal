@@ -14,6 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.github.beijingstrongbow.Communication.MessageHandler;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -25,6 +27,8 @@ public class Conversation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conversation);
+
+        MessageHandler.mh.setConversation(this);
 
         ArrayList<String> matchedOn = getMatchedOn();
         String buffer = "";
@@ -42,6 +46,7 @@ public class Conversation extends AppCompatActivity {
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MessageHandler.mh.sendMessage(messageToSend.getText().toString());
                 showMyMessage(messageToSend.getText().toString());
                 messageToSend.setText("");
             }
