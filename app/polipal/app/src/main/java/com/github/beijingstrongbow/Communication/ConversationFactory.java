@@ -43,7 +43,7 @@ public class ConversationFactory {
         }
         else {
             String uid = findNewMatch(thisUser, topChoices, time);
-            if(uid.equals("open")){
+            if(uid.equals("-openopenopenopenope")){
                 //popup box
             }
             String messageUid = MessageHandler.getNewMessageLocation();
@@ -82,6 +82,10 @@ public class ConversationFactory {
                         String data = in.readLine();
                         System.out.println(data);
                         String[] uidSplit = data.split("\"-");
+
+                        for(String s : uidSplit){
+                            System.out.println(s);
+                        }
 
                         for(int i = 1; i < uidSplit.length; i+=3){
                             String uid = "-" + uidSplit[i].substring(0, 19);
@@ -196,7 +200,7 @@ public class ConversationFactory {
                     }
 
                     if(gr_uid == null){
-                        gr_uid = "open";
+                        gr_uid = "-openopenopenopenope";
                     }
                     toReturn.append(gr_uid);
                 }
