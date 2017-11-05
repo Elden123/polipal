@@ -24,6 +24,14 @@ public class UserData {
 
     private String UID;
 
+    private String twitter;
+
+    private String snapchat;
+
+    private String facebook;
+
+    private String instagram;
+
     //represented as <total points>/<total conversations> i.e. 1012/5 for 1012 points over 5 conversations
     private String pointsString;
 
@@ -82,6 +90,30 @@ public class UserData {
 
     public void setPoints(String points){
         this.pointsString = points;
+    }
+
+    public void setTwitter(String name){ this.twitter = name; }
+
+    public void setSnapchat(String name){ this.snapchat = name; }
+
+    public void setInstagram(String name){ this.instagram = name; }
+
+    public void setFacebook(String name){ this.facebook = name; }
+
+    public String getTwitter(){
+        return twitter;
+    }
+
+    public String getSnapchat(){
+        return snapchat;
+    }
+
+    public String getFacebook(){
+        return facebook;
+    }
+
+    public String getInstagram(){
+        return instagram;
     }
 
     public static UserData ud;

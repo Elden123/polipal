@@ -82,6 +82,91 @@
 
             </android.support.design.widget.TextInputLayout>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/snapchat"
+                    android:layout_margin="5dp"/>
+
+                <EditText
+                    android:id="@+id/snapchatText"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="snapchat"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="#ffffff" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/facebook"
+                    android:layout_margin="5dp"/>
+
+                <EditText
+                    android:id="@+id/facebookText"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="facebook"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="#ffffff" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/twitter"
+                    android:layout_margin="5dp"/>
+
+                <EditText
+                    android:id="@+id/twitterText"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="twitter"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="#ffffff" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/instagram"
+                    android:layout_margin="5dp"/>
+
+                <EditText
+                    android:id="@+id/instagramText"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="intagram"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="#ffffff" />
+
+            </LinearLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -293,18 +378,6 @@
                 android:text="Register"
                 android:textStyle="bold"
                 android:background="#92CBC5" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
-
-            </LinearLayout>
 
         </LinearLayout>
 

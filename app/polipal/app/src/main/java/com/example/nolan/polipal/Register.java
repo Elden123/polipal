@@ -84,6 +84,11 @@ public class Register extends AppCompatActivity implements LoaderCallbacks<Curso
     CheckBox climateChange;
     CheckBox minimumWage;
 
+    EditText snapchatText;
+    EditText instagramText;
+    EditText facebookText;
+    EditText twitterText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,6 +113,11 @@ public class Register extends AppCompatActivity implements LoaderCallbacks<Curso
         abortion = (CheckBox) findViewById(R.id.abortion);
         climateChange = (CheckBox) findViewById(R.id.climateChange);
         minimumWage = (CheckBox) findViewById(R.id.minimumWage);
+
+        twitterText = (EditText) findViewById(R.id.twitterText);
+        instagramText = (EditText) findViewById(R.id.instagramText);
+        facebookText = (EditText) findViewById(R.id.facebookText);
+        snapchatText = (EditText) findViewById(R.id.snapchatText);
 
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -269,6 +279,20 @@ public class Register extends AppCompatActivity implements LoaderCallbacks<Curso
             userData.setPoliticalParty(affiliatoinSelected.getText().toString());
             userData.setPolicyInterests(topicList());
             userData.setHobbies(hobbiesList());
+
+            if(twitterText.getText().toString() != null) {
+                userData.setTwitter(twitterText.getText().toString());
+            }
+            if(facebookText.getText().toString() != null) {
+                userData.setFacebook(facebookText.getText().toString());
+            }
+            if(instagramText.getText().toString() != null) {
+                userData.setInstagram(instagramText.getText().toString());
+            }
+            if(snapchatText.getText().toString() != null) {
+                userData.setSnapchat(snapchatText.getText().toString());
+            }
+            
             firebaseHandler.addNewUser(userData);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
