@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd9468da-b7bc-45b3-8b5b-9d9ec5d61dda" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/polipal/app/src/main/res/layout/activity_exit.xml" afterPath="$PROJECT_DIR$/app/polipal/app/src/main/res/layout/activity_exit.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="gitPolipal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,8 +25,8 @@
       <file leaf-file-name="Exit.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/polipal/app/src/main/java/com/example/nolan/polipal/Exit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="26" column="35" lean-forward="false" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+            <state relative-caret-position="288">
+              <caret line="71" column="39" lean-forward="true" selection-start-line="71" selection-start-column="39" selection-end-line="71" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -34,11 +34,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_exit.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Register.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/polipal/app/src/main/java/com/example/nolan/polipal/Register.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="145" column="36" lean-forward="true" selection-start-line="145" selection-start-column="36" selection-end-line="145" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_exit.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/polipal/app/src/main/res/layout/activity_exit.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="25" column="34" lean-forward="false" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+            <state relative-caret-position="-68">
+              <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -63,15 +73,15 @@
       <file leaf-file-name="Conversation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/polipal/app/src/main/java/com/example/nolan/polipal/Conversation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2490">
-              <caret line="179" column="47" lean-forward="false" selection-start-line="179" selection-start-column="47" selection-end-line="179" selection-end-column="47" />
+            <state relative-caret-position="2728">
+              <caret line="181" column="0" lean-forward="false" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2151#2152#0" expanded="true" />
-                <element signature="e#2192#2193#0" expanded="true" />
-                <element signature="e#2244#2245#0" expanded="true" />
-                <element signature="e#2286#2287#0" expanded="true" />
-                <element signature="e#3690#3698#0" expanded="true" />
+                <element signature="e#2552#2553#0" expanded="true" />
+                <element signature="e#2593#2594#0" expanded="true" />
+                <element signature="e#2645#2646#0" expanded="true" />
+                <element signature="e#2687#2688#0" expanded="true" />
+                <element signature="e#4091#4099#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -181,9 +191,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/polipal/app/src/main/java/com/example/nolan/polipal/Exit.java" />
         <option value="$PROJECT_DIR$/app/polipal/app/src/main/java/com/example/nolan/polipal/Conversation.java" />
         <option value="$PROJECT_DIR$/app/polipal/app/src/main/res/layout/activity_exit.xml" />
+        <option value="$PROJECT_DIR$/app/polipal/app/src/main/java/com/example/nolan/polipal/Exit.java" />
       </list>
     </option>
   </component>
@@ -608,7 +618,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1509865253595" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1509874577862" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -656,7 +666,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1509865253595" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1509874577862" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -820,7 +830,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -934,19 +944,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/polipal/app/src/main/java/com/example/nolan/polipal/Conversation.java">
+    <entry file="file://$PROJECT_DIR$/app/polipal/app/src/main/res/layout/activity_exit.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2490">
-          <caret line="179" column="47" lean-forward="false" selection-start-line="179" selection-start-column="47" selection-end-line="179" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2151#2152#0" expanded="true" />
-            <element signature="e#2192#2193#0" expanded="true" />
-            <element signature="e#2244#2245#0" expanded="true" />
-            <element signature="e#2286#2287#0" expanded="true" />
-            <element signature="e#3690#3698#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-68">
+          <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+          <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/polipal/app/src/main/res/layout/activity_conversation.xml">
@@ -960,25 +966,37 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/polipal/app/src/main/java/com/example/nolan/polipal/Conversation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2728">
+          <caret line="181" column="0" lean-forward="false" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2552#2553#0" expanded="true" />
+            <element signature="e#2593#2594#0" expanded="true" />
+            <element signature="e#2645#2646#0" expanded="true" />
+            <element signature="e#2687#2688#0" expanded="true" />
+            <element signature="e#4091#4099#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/polipal/app/src/main/java/com/example/nolan/polipal/Exit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="26" column="35" lean-forward="false" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+        <state relative-caret-position="288">
+          <caret line="71" column="39" lean-forward="true" selection-start-line="71" selection-start-column="39" selection-end-line="71" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/polipal/app/src/main/res/layout/activity_exit.xml">
+    <entry file="file://$PROJECT_DIR$/app/polipal/app/src/main/java/com/example/nolan/polipal/Register.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="25" column="34" lean-forward="false" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+        <state relative-caret-position="459">
+          <caret line="145" column="36" lean-forward="true" selection-start-line="145" selection-start-column="36" selection-end-line="145" selection-end-column="36" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
   </component>
