@@ -2,11 +2,15 @@ package com.example.nolan.polipal;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.RelativeSizeSpan;
 import android.widget.Button;
 import android.content.Intent;
 import android.graphics.Color;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.view.Gravity;
 
 public class Exit extends AppCompatActivity {
 
@@ -32,7 +36,6 @@ public class Exit extends AppCompatActivity {
             disp.setText(congr[2]);
         } else {
             printScore("#f4dbdb", points);
-            sco.setText(points.toString());
             disp.setText(congr[1]);
         }
 
@@ -43,13 +46,13 @@ public class Exit extends AppCompatActivity {
         returnHomeB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent toReturnHome = new Intent(Exit.this, Decide.class);
+                Intent toReturnHome = new Intent(Exit.this, com.example.nolan.polipal.Decide.class);
                 Exit.this.startActivity(toReturnHome);
             }
         });
 
         public void printScore(String color, int scre) {
-            String s = scre.toString();
+            String s = scre + "";
             SpannableString ss1=  new SpannableString(s);
             ss1.setSpan(new RelativeSizeSpan(4f), 0, 5, 0); // set size
             TextView sco = (TextView) findViewById(R.id.sco);
