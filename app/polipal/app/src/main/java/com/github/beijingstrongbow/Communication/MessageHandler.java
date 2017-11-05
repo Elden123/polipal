@@ -8,6 +8,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by ericd on 11/4/2017.
@@ -61,9 +62,9 @@ public class MessageHandler {
     }
 
     public void registerMessageListener(){
-        conversationRef.addChildEventListener(new ChildEventListener() {
+        conversationRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChildAdded(final DataSnapshot dataSnapshot, String s) {
+            public void onDataChange(final DataSnapshot dataSnapshot) {
                 c.runOnUiThread(new Runnable(){
                     @Override
                     public void run(){
@@ -72,21 +73,6 @@ public class MessageHandler {
                         c.showTheirMessage(message);
                     }
                 });
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
             }
 
             @Override
