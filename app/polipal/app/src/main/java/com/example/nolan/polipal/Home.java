@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
-import com.github.beijingstrongbow.Communication.UserHandler;
-
 public class Home extends AppCompatActivity {
 
     @Override
@@ -22,11 +20,6 @@ public class Home extends AppCompatActivity {
         RelativeLayout r = (RelativeLayout) findViewById(R.id.activity_home);
         r.setBackgroundColor(Color.parseColor("#303030"));
 
-        UserHandler h = new UserHandler();
-        UserData d = h.retrieveUser("ericdhiggins@gmail.com", "password");
-        d.addPoints(30, h);
-        System.out.println(d.getPoints());
-
         /**
          * TODO: Change "Decide.class" to "Login.class"
          * "Decide.class" is just for testing
@@ -34,7 +27,7 @@ public class Home extends AppCompatActivity {
         signInB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent toSignIn = new Intent(Home.this, Decide.class);
+                Intent toSignIn = new Intent(Home.this, Login.class);
                 Home.this.startActivity(toSignIn);
             }
         });

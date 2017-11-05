@@ -2,6 +2,7 @@ package com.example.nolan.polipal;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.UserHandle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,10 @@ import android.widget.ListAdapter;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+
+import com.github.beijingstrongbow.Communication.ConversationFactory;
+import com.github.beijingstrongbow.Communication.MessageHandler;
+import com.github.beijingstrongbow.Communication.UserHandler;
 
 import java.util.ArrayList;
 
@@ -82,17 +87,37 @@ public class Quiz extends AppCompatActivity {
 
         //pass in picked and howLong
 
-        Intent toConversation = new Intent(Quiz.this, Conversation.class);
-        Quiz.this.startActivity(toConversation);
+        final Bundle extras = getIntent().getExtras();
+
+        UserData u = new UserData();
+        u.setName(extras.getString("userName"));
+        u.setEmail(extras.getString("userEmail"));
+        u.setPassword(extras.getString("userPassword"));
+        u.setPoliticalParty(extras.getString("userParty"));
+        u.setPolicyInterests(extras.getStringArrayList("userTopics"));
+        u.setHobbies(extras.getStringArrayList("userHobbies"));
+        u.setUID(extras.getString("userId"));
+
+
+        ConversationFactory f = new ConversationFactory(u);
+        MessageHandler mh = f.findConversation(picked, String.valueOf(howLong), UserHandler.instance);
+
+        Intent i = new Intent(getApplicationContext(), Conversation.class);
+
+        i.putExtra("userName",extras.getString("userName"));
+        i.putExtra("userEmail",extras.getString("userEmail"));
+        i.putExtra("userPassword",extras.getString("userPassword"));
+        i.putExtra("userParty",extras.getString("userParty"));
+        i.putExtra("userTopics",extras.getStringArrayList("userTopics"));
+        i.putExtra("userHobbies",extras.getStringArrayList("userHobbies"));
+        i.putExtra("userId",extras.getString("userId"));
+        i.putExtra("userPoints",extras.getInt("userPoints"));
+        startActivity(i);
     }
 
     public ArrayList<String> getTopics() {
-        ArrayList<String> hobbies = new ArrayList<String>();
-        hobbies.add("Taxes");
-        hobbies.add("Health Care");
-        hobbies.add("Immigration");
-        hobbies.add("Abortion");
-        return(hobbies);
+        final Bundle extras = getIntent().getExtras();
+        return(extras.getStringArrayList("userTopics"));
     }
 
 

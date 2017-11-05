@@ -3,8 +3,11 @@ package com.example.nolan.polipal;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.os.Handler;
+import android.os.UserHandle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -34,6 +37,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.github.beijingstrongbow.Communication.UserHandler;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,6 +65,9 @@ public class Login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
      * Keep track of the login task to ensure we can cancel it if requested.
      */
     private UserLoginTask mAuthTask = null;
+
+    UserHandler firebaseHandler = new UserHandler();
+    UserData user;
 
     // UI references.
     private AutoCompleteTextView mEmailView;
@@ -204,9 +212,29 @@ public class Login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+            //showProgress(true);
+            user = firebaseHandler.retrieveUser(email, password);
+
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent i = new Intent(getApplicationContext(), Decide.class);
+
+                    i.putExtra("userName",user.getName());
+                    i.putExtra("userEmail",user.getEmail());
+                    i.putExtra("userPassword",user.getPassword());
+                    i.putExtra("userParty",user.getPoliticalParty());
+                    i.putExtra("userTopics",user.getPolicyInterests());
+                    i.putExtra("userHobbies",user.getHobbies());
+                    i.putExtra("userId",user.getUID());
+                    i.putExtra("userPoints",user.getPoints());
+                    startActivity(i);
+                }
+            }, 3000);
+
+            //mAuthTask = new UserLoginTask(email, password);
+            //mAuthTask.execute((Void) null);
         }
     }
 

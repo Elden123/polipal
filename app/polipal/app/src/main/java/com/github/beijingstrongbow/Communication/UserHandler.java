@@ -22,10 +22,12 @@ public class UserHandler {
     private DatabaseReference usersRef;
 
     private DatabaseReference onlineUsersRef;
+    public static UserHandler instance;
 
     public UserHandler() {
         usersRef = FirebaseDatabase.getInstance().getReference("/Users/");
         onlineUsersRef = FirebaseDatabase.getInstance().getReference("/OnlineUsers/");
+        instance = this;
     }
 
 
