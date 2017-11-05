@@ -94,10 +94,22 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/exitB"
+            android:layout_toStartOf="@+id/exitB"
             android:ems="10"
+            android:hint="Message"
             android:textColor="#ffffff"
-            android:textColorHint="#7E7E7E"
-            android:hint="Message"/>
+            android:textColorHint="#7E7E7E" />
+
+        <Button
+            android:id="@+id/exitB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/sendButton"
+            android:layout_toStartOf="@+id/sendButton"
+            android:background="#92CBC5"
+            android:text="Exit" />
 
         <Button
             android:id="@+id/sendButton"

@@ -1,5 +1,6 @@
 package com.example.nolan.polipal;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -64,6 +65,16 @@ public class Conversation extends AppCompatActivity {
             }
         });
 
+        Button exitB = (Button) findViewById(R.id.exitB);
+
+        exitB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v){
+                Intent toExit = new Intent(Conversation.this, com.example.nolan.polipal.Exit.class);
+                Conversation.this.startActivity(toExit);
+            }
+        });
+
     }
 
     public void showMyMessage(String message) {
@@ -123,9 +134,6 @@ public class Conversation extends AppCompatActivity {
 
         return (matchedOn);
     }
-<<<<<<
-    <HEAD
-
     /*
 LinearLayout LL = new LinearLayout(this);
         TextView tv1 = new TextView(this);
@@ -171,14 +179,6 @@ LinearLayout LL = new LinearLayout(this);
      */
 
 //this stuff could go wrong, feel free to delete
-        Button exitB = (Button) findViewById(R.id.exitB);
 
-        exitB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v){
-                Intent toExit = new Intent(Conversation.this, com.example.nolan.polipal.Exit.class);
-                Conversation.this.startActivity(toExit);
-            }
-        });
 
 }

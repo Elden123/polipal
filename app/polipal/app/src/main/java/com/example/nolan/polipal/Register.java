@@ -292,7 +292,7 @@ public class Register extends AppCompatActivity implements LoaderCallbacks<Curso
             if(snapchatText.getText().toString() != null) {
                 userData.setSnapchat(snapchatText.getText().toString());
             }
-            
+
             firebaseHandler.addNewUser(userData);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);

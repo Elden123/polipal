@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.content.Intent;
 import android.graphics.Color;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.view.Gravity;
@@ -18,7 +20,7 @@ public class Exit extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exit);
-        /*RelativeLayout r = (RelativeLayout) findViewById(R.id.activity_exit);
+        RelativeLayout r = (RelativeLayout) findViewById(R.id.activity_exit);
         r.setBackgroundColor(Color.parseColor("#303030"));
 
         int points = 82; //need to fill in with stephanie's score
@@ -27,19 +29,65 @@ public class Exit extends AppCompatActivity {
         TextView disp = (TextView) findViewById(R.id.disp);
         String[] congr = {"Congratulations!", "Less congratulations.", "You kind of suck."};
 
+        ImageView twitterImage = (ImageView) findViewById(R.id.twitterImage);
+        ImageView instagramImage = (ImageView) findViewById(R.id.instagramImage);
+        ImageView facebookImage = (ImageView) findViewById(R.id.faceBookImage);
+        ImageView snapchatImage = (ImageView) findViewById(R.id.snapchatImage);
+
+        TextView twitterLabel = (TextView) findViewById(R.id.twitterLabel);
+        TextView instagramLabel = (TextView) findViewById(R.id.instagramLabel);
+        TextView facebookLabel = (TextView) findViewById(R.id.facebookLabel);
+        TextView snapchatLabel = (TextView) findViewById(R.id.facebookLabel);
+
+        twitterImage.setVisibility(View.INVISIBLE);
+        instagramImage.setVisibility(View.INVISIBLE);
+        facebookImage.setVisibility(View.INVISIBLE);
+        snapchatImage.setVisibility(View.INVISIBLE);
+
+        twitterLabel.setVisibility(View.INVISIBLE);
+        instagramLabel.setVisibility(View.INVISIBLE);
+        facebookLabel.setVisibility(View.INVISIBLE);
+        snapchatLabel.setVisibility(View.INVISIBLE);
+
+
+        String twitter = UserData.ud.getTwitter();
+        String instagram = UserData.ud.getInstagram();
+        String facebook = UserData.ud.getFacebook();
+        String snapchat = UserData.ud.getSnapchat();
+
         if (points>=75) {
-            printScore("#7a9fc6", points);
+            printScore(points);
             disp.setText(congr[0]);
 
+            if(twitter.length() > 0) {
+                twitterImage.setVisibility(View.VISIBLE);
+                twitterLabel.setVisibility(View.VISIBLE);
+                twitterLabel.setText(twitter);
+            }
+            if(instagram.length() > 0) {
+                instagramImage.setVisibility(View.VISIBLE);
+                instagramLabel.setVisibility(View.VISIBLE);
+                instagramLabel.setText(instagram);
+            }
+            if(facebook.length() > 0) {
+                facebookImage.setVisibility(View.VISIBLE);
+                facebookLabel.setVisibility(View.VISIBLE);
+                facebookLabel.setText(facebook);
+            }
+            if(snapchat.length() > 0) {
+                snapchatImage.setVisibility(View.VISIBLE);
+                snapchatLabel.setVisibility(View.VISIBLE);
+                snapchatLabel.setText(snapchat);
+            }
+
         } else if (points<=25) {
-            printScore("#ca7373", points);
+            printScore(points);
             disp.setText(congr[2]);
         } else {
-            printScore("#f4dbdb", points);
+            printScore(points);
             disp.setText(congr[1]);
         }
 
-        //are we putting social media stuff here
 
         Button returnHomeB = (Button) findViewById(R.id.returnHomeB);
 
@@ -50,14 +98,11 @@ public class Exit extends AppCompatActivity {
                 Exit.this.startActivity(toReturnHome);
             }
         });
+    }
 
-        public void printScore(String color, int scre) {
-            String s = scre + "";
-            SpannableString ss1=  new SpannableString(s);
-            ss1.setSpan(new RelativeSizeSpan(4f), 0, 5, 0); // set size
-            TextView sco = (TextView) findViewById(R.id.sco);
-            sco.setTextColor(Color.parseColor(color));
-            sco.setText(ss1);
-        }*/
+    public void printScore(int scre) {
+        String s = scre + "";
+        TextView sco = (TextView) findViewById(R.id.sco);
+        sco.setText(s);
     }
 }
