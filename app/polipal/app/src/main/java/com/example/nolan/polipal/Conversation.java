@@ -30,13 +30,13 @@ public class Conversation extends AppCompatActivity {
 
     LinearLayout holderLayout;
     ScrollView sView;
-
+    static MessageSentiment ms;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conversation);
 
-		MessageSentiment ms = new MessageSentiment("ml-OTXlWUgIjwd", this);
+        ms = new MessageSentiment("ml-OTXlWUgIjwd", this);
         MessageHandler.mh.setConversation(this);
         sView = (ScrollView) findViewById(R.id.sLayout);
 
@@ -74,7 +74,7 @@ public class Conversation extends AppCompatActivity {
         exitB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v){
-                Intent toExit = new Intent(Conversation.this, com.example.nolan.polipal.Exit.class);
+                Intent toExit = new Intent(Conversation.this, Exit.class);
                 Conversation.this.startActivity(toExit);
             }
         });
@@ -130,11 +130,11 @@ public class Conversation extends AppCompatActivity {
     public ArrayList<String> getMatchedOn() {
         ArrayList<String> matchedOn = new ArrayList<String>();
         matchedOn.add("Gun Control");
-        matchedOn.add("Abortion");
-        matchedOn.add("Immigration");
+        matchedOn.add("Climage Change");
+        /*matchedOn.add("Immigration");
         matchedOn.add("Shopping");
         matchedOn.add("Cooking");
-        matchedOn.add("Playing Sports");
+        matchedOn.add("Playing Sports");*/
 
         return (matchedOn);
     }

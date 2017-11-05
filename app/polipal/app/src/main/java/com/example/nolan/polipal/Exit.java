@@ -23,11 +23,11 @@ public class Exit extends AppCompatActivity {
         RelativeLayout r = (RelativeLayout) findViewById(R.id.activity_exit);
         r.setBackgroundColor(Color.parseColor("#303030"));
 
-        int points = 82; //need to fill in with stephanie's score
+        int points = Conversation.ms.getFinalScore(); //need to fill in with stephanie's score
 
-
+        System.out.println("-----------------------------------"+points);
         TextView disp = (TextView) findViewById(R.id.disp);
-        String[] congr = {"Congratulations!", "Less congratulations.", "You kind of suck."};
+        String[] congr = {"Good job!", "Solid work.", "Try again?"};
 
         ImageView twitterImage = (ImageView) findViewById(R.id.twitterImage);
         ImageView instagramImage = (ImageView) findViewById(R.id.instagramImage);

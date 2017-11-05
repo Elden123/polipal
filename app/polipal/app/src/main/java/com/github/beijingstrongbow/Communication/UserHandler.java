@@ -87,7 +87,7 @@ public class UserHandler {
                                 key = key.replaceAll("\\{", "");
                                 user.setUID(key);
                             }
-
+                            System.out.println("----------------------------------" + key);
                             switch(key){
                                 case "name":
                                     user.setName(value);
@@ -125,7 +125,7 @@ public class UserHandler {
                                     i--;
                             }
                             System.out.println(user.getEmail() + " " + user.getPassword() + " " + user.getName() + " " + user.getPoliticalParty() + " " + user.getPolicyInterests() + " " + user.getHobbies());
-                            if(user.getEmail() != null && user.getPassword() != null && user.getName() != null && user.getPoliticalParty() != null && user.getPolicyInterests() != null && user.getHobbies() != null){
+                            if(user.getEmail() != null && user.getPassword() != null && user.getName() != null && user.getPoliticalParty() != null && user.getPolicyInterests() != null && user.getHobbies() != null && user.getTwitter() != null && user.getFacebook() != null && user.getSnapchat() != null && user.getInstagram() != null){
 
 
                                 if(user.getEmail().equals(email) && user.getPassword().equals(password)) {

@@ -100,7 +100,9 @@ public class Quiz extends AppCompatActivity {
     }
 
     public ArrayList<String> getTopics() {
-        return(UserData.ud.getPolicyInterests());
+        ArrayList<String> policies = UserData.ud.getPolicyInterests();
+        policies.addAll(UserData.ud.getHobbies());
+        return policies;
     }
 
 

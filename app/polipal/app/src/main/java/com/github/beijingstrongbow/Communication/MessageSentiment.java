@@ -95,6 +95,10 @@ public class MessageSentiment {
     private float fl = 0;
     private int finalScore = 0;
 
+    public int getFinalScore() {
+        return finalScore/counter;
+    }
+
     public void manageScore(String msg) {
         HashMap<String, Float> hm2 = makePrediction(msg);
         int pn = Integer.parseInt(new ArrayList<String>(hm2.keySet()).get(0));
