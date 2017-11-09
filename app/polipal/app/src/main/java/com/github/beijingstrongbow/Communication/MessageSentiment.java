@@ -60,7 +60,7 @@ public class MessageSentiment {
         this.mlModelId = mlModelId1;
         ms = this;
         c1 = c;
-        client = new AmazonMachineLearningClient(new BasicAWSCredentials("AKIAJKZS442SYEMO4M7A", "VO6fAC5kFm4eTjJWbo7/bkDh9Y5ZkN/Ir3rcnZhY"));
+        client = new AmazonMachineLearningClient(new BasicAWSCredentials("", ""));
 
 
     }
